@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang='en' dir='ltr'>
+    <head>
+        <meta charset='utf-8'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <!-- default favicon -->
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+        <!-- wideley used favicon -->
+        <link rel="icon" href="favicon.png" sizes="32x32" type="image/png">
+        
+        <title>The Mind at Large Lab</title>
+        
+        <link rel='stylesheet' href='style.css'>
+        
+    </head>
+    
+    <body>
+        
+        <noscript>
+            <p>Javascript has been disabled in your browser.</p>
+            <p>In order to complete this study, you must enable JavaScript.</p>
+            <p>Here are <a href="https://www.enable-javascript.com/">instructions on how to enable JavaScript in your web browser</a>.</p>
+        </noscript>
+        
+        <form id='demo-form' method='post' action='server-side2.php'>
+        <input type='hidden' name='put-study-id-here' id = 'put-study-id-here' value = ''/>
+        <input type='hidden' name='put-ss-code-here' id = 'put-ss-code-here' value = ''/>
+        <input type='hidden' name='put-demo-data-here' id = 'put-demo-data-here' value = ''/>
+        </form>
+        
+        <header id='mal-header'>
+            <img id='mal-logo' src='mal-grey.png' alt='logo for mind at large lab'/>
+        </header>
+        
+        <div id='demographics'>
+            <p>Thank you for completing the task. You will now answer a few demographics questions. After answering these questions, you will be given the verification code that you will need to receive payment from Amazon MTurk.</p>
+            <br>
+            <br>
+            <div id='demo-age'>
+            <p>How old are you?</p>
+            <input type='number' name='age' id='age' min='18' max='120' required>
+            </div>
+            <br>
+            <br>
+            <div id='demo-gender'>
+            <p>What is your gender?</p>
+            <input type='radio' name='gender' id='male' value='male'/>
+            <label for='male'>Male</label>
+            <br>
+            <input type='radio' name='gender' id='female' value='female'/>
+            <label for='female'>Female</label>
+            <br>
+            <input type='radio' name='gender' id='nb' value='non-binary'/>
+            <label for='nb'>Non-Binary</label>
+            <br>
+            <input type='radio' name='gender' id='gender-none' value='none'/>
+            <label for='gender-none'>I Prefer Not to Answer</label>
+            </div>
+            <br>
+            <br>
+            <div id='demo-brows'>
+            <p>Which internet browser did you use to complete today's study?</p>
+            <input type='radio' name='browser' id='chrome' value='chrome'/>
+            <label for='chrome'>Chrome</label>
+            <br>
+            <input type='radio' name='browser' id='firefox' value='firefox'/>
+            <label for='firefox'>Firefox</label>
+            <br>
+            <input type='radio' name='browser' id='opera' value='opera'/>
+            <label for='opera'>Opera</label>
+            <br>
+            <input type='radio' name='browser' id='edge' value='edge'/>
+            <label for='edge'>Edge</label>
+            <br>
+            <input type='radio' name='browser' id='ie' value='ie'/>
+            <label for='ie'>Internet Explorer</label>
+            <br>
+            <input type='radio' name='browser' id='safari' value='safari'/>
+            <label for='safari'>Safari</label>
+            <br>
+            <input type='radio' name='browser' id='idk' value='idk'/>
+            <label for='idk'>I Don't Know</label>
+            <br>
+            <input type='radio' name='browser' id='none' value='none'/>
+            <label for='none'>I Prefer Not to Answer</label>
+            </div>
+            <br>
+            <br>
+        </div>
+        
+        <button id='save-demo-btn'>Submit</button>
+        
+        <div id='do-not-refresh'>
+            <br><p><b><i>Warning: Refreshing your browser will cause the task to reset. Please do not refresh your browser.</i></b></p>
+        </div>
+        
+        <script src='survey.js'></script>
+    
+    </body>
+    
+</html>

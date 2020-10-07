@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang='en' dir='ltr'>
+    <head>
+        <meta charset='utf-8'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LAB NAME</title>
+        
+        <!-- default favicon -->
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+        <!-- wideley used favicon -->
+        <link rel="icon" href="favicon.png" sizes="32x32" type="image/png">
+        
+        <style>
+        
+            div,button{
+                font-family: Verdana, sans-serif;
+                font-size: 16px;
+                text-align:center;
+            }
+
+            H2{
+                text-align:left;
+                color:#57585b;
+            }
+
+            H3{
+                color:#57585b;
+            }
+
+            p,ul{
+                color:#57585b;
+            }
+
+            body{
+                /*top right bottom left*/
+                /*padding: 40px 40px 0px 40px;*/
+                /* padding: 40px 100px 10px 100px;*/
+                padding: 40px 100px 10px 100px;
+                background-color:#ffffff;
+            }
+
+            button{
+                /*top right bottom left*/
+                padding: 8px 12px 8px 12px;
+                text-transform:uppercase;
+                color:#57585b;  
+            }
+            
+            #lab-header{
+                text-align:center;
+                max-height:150px;
+                max-width:100%;
+                background-color:white;
+                display: inline;
+            }
+
+            #lab-logo{
+                display:block;
+                margin-left:auto;
+                margin-right:auto;
+                max-height:100%;
+                max-width:100%;
+            }
+            
+            #feedback{
+                margin:auto;
+                width:50%;
+            }
+        
+        </style>
+        
+    </head>
+    
+    <body>
+        
+        <header id='lab-header'>
+            <img id='lab-logo' src='lab-logo.png' alt='logo for lab'/>
+        </header>
+        
+        <div id='feedback'>
+            
+            <p>Thank you for taking the time to provide feedback. If you would like to receive a response to your message, please include your email address. This form is for reporting technical issues you encountered with the program. If you have questions regarding your participation in the study, please contact us via [PLATFORM] or email our lab manager directly at <a href="lab.manager@university.edu">[LAB MANAGER NAME]</a>.</p>
+            
+            <br>
+            <br>
+            
+            <form id='feedback-form' method='post' action='feedback.php'>
+                <input type='hidden' name='put-sscode-here' id='put-sscode-here' value=''/>
+                <p>Name<br><input type='text' name='name' id='name' size='50' value=''/></p>
+                <br>
+                <p>Email Address<br><input type='text' name='email' id='email' size='50' value=''/></p>
+                <br>
+                <p>Feedback<br><textarea name='comment' rows='10' cols='51'></textarea></p>
+                <br>
+                <br>
+                <button id='submit-btn'>Submit</button>
+            </form>
+        </div>
+        
+        <script>
+        
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const comment = document.getElementById('comment');
+            const submit_btn = document.getElementById('submit-btn');
+        
+            var sscode = sessionStorage.getItem("sscode");
+            console.log("the ss code is " + sscode);
+        
+            document.getElementById('put-sscode-here').value = sscode;
+            
+            var form_submit = sessionStorage.getItem("form_submit");
+            console.log(form_submit);
+            
+            submit_btn.addEventListener('click',function(event){
+            form_submit = 1;
+            sessionStorage.setItem("form_submit", form_submit);
+            document.getElementById('feedback-form').submit();
+            });
+        
+        </script>
+        
+    </body>
+    
+</html>

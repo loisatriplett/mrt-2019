@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        
+        <!-- default favicon -->
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+        <!-- wideley used favicon -->
+        <link rel="icon" href="favicon.png" sizes="32x32" type="image/png">
+        
+        <title>LAB NAME: STUDY TITLE</title>
+      
+        <link rel='stylesheet' href='style.css'>
+      
+    </head>
+    
+    <body>
+      
+        <header id='lab-header'>
+            <img id='lab-img' src='lab-logo.png' alt='logo for lab'/>
+        </header>
+        
+        <br>
+        
+        <br>
+        
+        <div id='form-thanks'>
+            <h4 style='text-align:center;'>Thank you for your feedback. We will review your comments and, if you included your email address, respond shortly.</h4>
+        </div>
+        
+        <br>
+        
+        <div id='EOS' style='font-size:16pt;text-align:center;'>
+            <p>Thank you for participating.</p>
+            <p><b>Your validation code is:</b></p>
+            <p id='sscode-ctn'><b><?php echo $sscode; ?></b></p>
+            <p>To receive payment for participating, enter this validation code into the [PLATFORM WINDOW] then click "Submit".</p>
+        </div>
+        
+        <div id='feedback-form' style='text-align:center'>
+        
+            <p>If you had any technical issues with today's task or if you have any feedback you'd like to give us, fill out our <a href='form.html'>Feedback Form</a>.</p>
+        
+        </div>
+        
+        <br> 
+      
+        <div id='feedback-letter'>
+      
+            <p><b>Project Title:</b> [STUDY TITLE]</p>
+            <p><b>Faculty Researcher:</b> [PRINCIPAL INVESTIGATOR NAME], <a href="mailto:pi.name@university.edu">[PI EMAIL]</a>, [DEPARTMENT], [UNIVERSITY]</p>
+            <p>The purpose of this study is [PURPOSE].</p>
+            <p>The task you completed, the Metronome Response Task, is a behavioral index of one’s ability to remain attentive. During the study session we asked you to [METHODS]. Responses to these items will allow us to [USE].</p>
+            <p>[DATA MANAGEMENT PLAN]</p>
+            <p>If you are interested in learning the outcome of the study, or if you have any questions or concerns, please feel free to email our lab manager, [LAB MANAGER NAME], at <a href="mailto:lab.manager@university.edu">[LAB MANAGER EMAIL]</a>. Eventually, the conclusions of this study will be shared with the research community through seminars, conferences, presentations, and journal articles.</p>
+            <p>If you are interested in learning more about some of the issues addressed in this project, then we recommend you read the following:</p>
+            <ul>SURNAME, A.A., &amp; SURNAME, B.B. (YEAR). TITLE OF ARTICLE. <i>TITLE OF JOURNAL, VOLUME#</i>(ISSUE#), PAGES.</ul>
+            <hr>
+            <p><i>As with all [UNIVERSITY] studies involving human participants, this project was reviewed by, and has received ethics clearance through [IRB COMMITTEE]. Should you have any questions for the Committee, please contact the Chair at [IRB PHONE] or at <a href="mailto:irb@university.edu">[IRB EMAIL]</a>.</i>  
+        
+        </div>
+        
+        <script>
+        
+            var sscode = sessionStorage.getItem("sscode");
+            console.log("the ss code is " + sscode);
+            var form_submit = sessionStorage.getItem("form_submit");
+            console.log("form submit = " + form_submit);
+
+            //show an element
+            function showPage(doc_ele) {
+                doc_ele.style.visibility = 'visible';
+                doc_ele.style.display = 'inline';
+            }
+
+            //hide an element   
+            function hidePage(doc_ele) {
+                doc_ele.style.visibility = 'hidden';
+                doc_ele.style.display = 'none';
+            }
+            
+            const sscode_ctn = document.getElementById('sscode-ctn');
+            const form_thanks = document.getElementById('form-thanks');
+            const feedback_form = document.getElementById('feedback-form');
+            const EOS = document.getElementById('EOS');
+            const feedback_letter = document.getElementById('feedback-letter');
+
+            if(form_submit==1){
+                console.log("it's true!");
+                showPage(form_thanks);
+                hidePage(feedback_form);
+            }
+            
+            else{
+                showPage(feedback_form);
+            }
+            
+            showPage(sscode_ctn);
+            showPage(EOS);
+            showPage(feedback_letter);            
+            sscode_ctn.innerHTML = "<h3>" + sscode + "</h3>";
+        
+        </script>
+    
+    </body>
+
+</html>
+

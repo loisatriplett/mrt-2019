@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='en' dir='ltr'>
+    <head>
+        <meta charset='utf-8'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lab Name</title>
+        
+        <link rel='stylesheet' href='style.css'>
+        
+        <noscript>
+            <p>Javascript has been disabled in your browser.</p>
+            <p>In order to complete this study, you must enable JavaScript.</p>
+            <p>Here are <a href="https://www.enable-javascript.com/">instructions on how to enable JavaScript in your web browser</a>.</p>
+        </noscript>
+        
+    </head>
+    
+    <body>
+        
+        <div id='mobile-reject'>
+            <h3>Unfortunately, you are not allowed to complete this task on a mobile device. Please reopen this page on a desktop or laptop computer to participate. Thanks for your time!</h3>
+        </div>
+    
+    </body>
+    
+    <script type="text/javascript">
+        const mobile_reject = document.getElementById('mobile-reject');
+        
+        //show an element
+        function showPage(doc_ele) {
+            doc_ele.style.visibility = 'visible';
+            doc_ele.style.display = 'inline';
+        }
+        
+        showPage(mobile_reject);
+    </script>
+    
+</html>

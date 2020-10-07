@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        
+        <!-- default favicon -->
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+        <!-- wideley used favicon -->
+        <link rel="icon" href="favicon.png" sizes="32x32" type="image/png">
+        
+        <title>Lab Name</title>
+        <link rel='stylesheet' type='text/css' href='style.css'/>
+        
+        <script>
+
+            var browser = '';
+            
+            var user_agent = navigator.userAgent;
+            
+            function includes(container, value) {
+                var returnValue = false;
+                var pos = container.indexOf(value);
+                if (pos >= 0) {
+                    returnValue = true;
+                }
+                return returnValue;
+            }
+    
+            function doesNotInclude(container, value) {
+                var returnValue = false;
+                var pos = container.indexOf(value);
+                if (pos < 0) {
+                    returnValue = true;
+                }
+                return returnValue;
+            }
+        
+            if(includes(navigator.userAgent,"iPhone")||includes(navigator.userAgent,"Mobile")||includes(navigator.userAgent,"Mobi")){
+                document.location = "mobile.html";
+            }
+    
+            else if(includes(navigator.userAgent,"Firefox")&&doesNotInclude(navigator.userAgent,"Seamonkey")){
+                browser = "firefox";
+                console.log(user_agent);
+            }
+    
+            else if(includes(navigator.userAgent,"Gecko")&&includes(navigator.userAgent,"Chrome")&&includes(navigator.userAgent,"Edge")){
+                browser = "edge";
+                console.log(user_agent);
+            }
+    
+            else if(includes(navigator.userAgent,"Gecko")&&includes(navigator.userAgent,"Mozilla")&&includes(navigator.userAgent,"Trident")){
+                document.location = "reject.html";
+                console.log(user_agent);
+            }
+    
+            else if(includes(navigator.userAgent,"OPR")||includes(navigator.userAgent,"Opera")){
+                browser = "opera";
+                console.log(user_agent);
+            }
+    
+            else if(includes(navigator.userAgent,"Mac")&&includes(navigator.userAgent,"Safari")&&includes(navigator.userAgent,"AppleWebKit")){
+                document.location = "reject.html";
+                console.log(user_agent);
+            }
+            
+            else if(includes(navigator.userAgent,"Chrome")&&doesNotInclude(navigator.userAgent,"Chromium")){
+                browser = "chrome";
+                console.log(user_agent);
+            }
+            
+            else{
+                browser = "unknown";
+                console.log(user_agent);
+            }
+            
+
+        </script>
+    </head>
+    
+    <body>
+        
+        <noscript>
+            <p>Javascript has been disabled in your browser.</p>
+            <p>In order to complete this study, you must enable JavaScript.</p>
+            <p>Here are <a href="https://www.enable-javascript.com/">instructions on how to enable JavaScript in your web browser</a>.</p>
+        </noscript>
+
+        <form id='sendtoPHP' method='post' action='server-side.php'>
+        <input type='hidden' name='put-studyid-here' id = 'put-studyid-here' value = ''/>
+        <input type='hidden' name='put-sscode-here' id = 'put-sscode-here' value = ''/>
+        <input type='hidden' name='put-data-here' id = 'put-data-here' value = ''/>
+        </form>
+
+        <audio id='metronome' src="stimuli/metronomeMono.mp3"></audio>
+      
+        <div id='stim-container'></div>
+
+        <header id='lab-header'>
+            <img id='lab-logo' src='logo-img.png' alt='LabName logo'/>
+        </header>
+
+        <div id='info-consent-letter'>
+            <p><b>Title of research study:</b> TITLE</p>
+            <p><b>Key Information</b></p>
+            <p>This consent form asks you to take part in a research study. The study is being conducted by [PRINCIPAL INVESTIGATOR], [TITLE] in the Department of [DEPARTMENT] at [UNIVERSITY].</p>
+            <p><b>Purpose:</b> [PURPOSE].</p>
+            <p><b>What you will be asked to do:</b> In this HIT, you will be asked to [METHODS]. The study should take approximately [ESTIMATED TIME] to complete and you will be paid [COMPENSATION] for your participation.</p>
+            <p>At the end of the study, you’ll receive a validation code that you must enter into [PLATFORM] in order to receive payment.</p>
+            <p><u>This experiment involves sound. Please ensure you have access to audio before beginning.</u></p>
+            <p><b>How your confidentiality will be maintained:</b> [DATA MANAGEMENT PLAN].</p>
+            <p><b>Benefits and Risks:</b> [BENEFITS]. [RISKS]</p>
+            <p>Your participation is <u>voluntary</u>. You may withdraw at any time and you may choose not to answer any question but you must proceed to the final screen of the study in order to receive your completion code which you must submit in order to be paid.</p>
+            <p>If you have any questions about this research, please contact our lab manager, [LAB MANAGER NAME], at <a href="lab.manager@university.edu">[LAB MANAGER EMAIL]</a>. You may also contact [PRINCIPAL INVESTIGATOR] (<a href="pi@university.edu">[PI EMAIL]</a>) if you have any questions about the study. Finally, you may contact the [IRB COMMITTEE] at [IRB PHONE] or <a href="irb@university.edu">[IRB EMAIL]</a> about your rights as a research participant.</p>
+            <hr>
+            <p>By clicking on the “<b>I Agree to Participate</b>” button below, you indicate that you are 18 years of age or older, that you voluntarily agree to participate in this study and that you understand the information in this consent form. You have not waived any legal rights you would otherwise have as a participant in a research study.</p>
+            <p><b>Protocol:</b> [PROTOCOL NUMBER]</p>
+        </div>
+
+        <div id='decline-to-participate'>
+            <p>You have declined to participate at this time.</p>
+            <p>If you change your mind, simply reload this webpage.</p>
+        </div>
+        
+        <div id='test-sound-screen'>
+            <p>Before we begin, we would like to test your equipment. First, we will test your sound system.</p>
+            <p>Please press the TEST SOUND button below to continue.</p>
+            <p>If you do not hear the metronome sound after pressing the button below, please check the sound settings on your computer and refresh this page to try again.</p>
+            <p>If you have difficulties checking your equipment or if the continue button doesn't appear after you've pressed the test sound button, feel free to contact our lab manager, [LAB MANAGER NAME], at <a href="lab.manager@university.edu">[LAB MANAGER EMAIL]</a>.</p>
+        </div>
+        
+        <div id='test-keyboard-screen'>
+            <table class='test'>
+            <tbody class='test'>
+                <tr><td id='spacebar'>SPACEBAR</td></tr>
+                    <tr><td class='last'><p>We would also like to make sure your keyboard is working properly and your keystrokes are being counted by our program.</p>
+                        <p>Please press the SPACEBAR on your keyboard. If the press is registered, the word SPACEBAR above will be highlighted in blue.</p>
+                        <p>Once you've completed the test, a continue button will appear so that you can move on to the task.</p>
+                        <p>If you have difficulties checking your equipment or if the continue button doesn't appear after you've pressed your spacebar, feel free to contact our lab manager, [LAB MANAGER NAME], at <a href="lab.manager@university.edu">[LAB MANAGER EMAIL]</a>.</p>
+                        </td></tr>
+            </tbody>
+            </table>
+        </div>
+
+        <div id='task-inst'></div>
+        
+        <div id='show-rating'></div>
+        
+        <div id='practice-over'>
+            <p>The practice trials are now over.</p>
+            <br>
+            <p><b>Before you get started, there is one last thing you should know.</b></p>
+            <p>That is, from time to time throughout the task, we will ask you how motivated you are to do well on the task.</p>
+            <p>We understand you may not be completely motivated to do well on the task, and your response will not affect your ability to participate, so please be as HONEST and ACCURATE as possible.</p>    
+            <p>To do this, we will present you with a motive-sampling screen that looks like this:</p> 
+        </div>
+        
+        <div id='mot-probe'>
+            <br><p><b>We would now like to know about your motivation level over the last couple minutes of the task. 
+            <br>Please be as HONEST and ACCURATE as possible.</b></p>
+            <input type="radio" name="motive-rad" id="mot1" value="mot1"/>
+            <label for="mot1">Not At All Motivated</label>
+            <br>
+            <input type="radio" name="motive-rad" id="mot2" value="mot2"/>
+            <label for="mot2">Not Very Motivated</label>
+            <br>
+            <input type="radio" name="motive-rad" id="mot3" value="mot3"/>
+            <label for="mot3">Somewhat Motivated</label>
+            <br>
+            <input type="radio" name="motive-rad" id="mot4" value="mot4"/>
+            <label for="mot4">Very Motivated</label>
+            <br>
+            <input type="radio" name="motive-rad" id="mot5" value="mot5"/>
+            <label for="mot5">Completely Motivated</label>
+            <br>
+            <input type="radio" name="motive-rad" id="mot-none" value="mot-none"/>
+            <label for="mot-none">I Prefer Not to Answer</label>
+            <br>
+            <br>
+            <br>
+        </div>
+        
+        <div id='begin-task'>
+            <p>We're now ready to start the task!</p>
+            <p>When you are ready to begin the experiment, please click the 'Begin Task' button below</p>
+        </div>
+        
+
+            
+
+
+        <div id='thought-probe-1'>
+            <p><b>Just prior to the onset of this screen, I was:</b></p>
+            <input type="radio" name="mw-probe-rad" id="on-task" value="on-task"/>
+            <label for="on-task">Focused on the task.</label>
+            <br>
+            <input type="radio" name="mw-probe-rad" id="int-mw" value="int-mw"/>
+            <label for="int-mw">Not focused on the task, but I <b><u>was</u></b> trying to focus on it.</label>
+            <br>
+            <input type="radio" name="mw-probe-rad" id="unint-mw" value="unint-mw"/>
+            <label for="unint-mw">Not focused on the task, but I <b><u>wasn't</u></b> trying to focus on it.</label>
+            <br>
+            <input type="radio" name="mw-probe-rad" id="mw-none" value="mw-none"/>
+            <label for="mw-none">I Prefer Not to Answer</label>
+            <br>
+            <br>
+        </div>
+
+        <div id='thought-probe-2'>
+            <p><b>The thoughts I was experiencing were moving freely:</b></p>
+            <input type="radio" name="guidance-probe-rad" id="guide-yes" value="guide-yes"/>
+            <label for="guide-yes">Yes</label>
+            <br>
+            <input type="radio" name="guidance-probe-rad" id="guide-no" value="guide-no"/>
+            <label for="guide-no">No</label>
+            <br>
+            <input type="radio" name="guidance-probe-rad" id="guide-none" value="guide-none"/>
+            <label for="guide-none">I Prefer Not to Answer</label>
+            <br>
+            <br>
+        </div>
+        
+        <div id='mw-slider-probe'>
+            <br>
+            <table style="width:100%">
+                <caption style="text-align:center"><b>To what extent were you mind wandering just before seeing this screen?</b></caption>
+                <tr><td colspan="3" style="text-align:center">Use the slider below to indicate the depth of your mind wandering.</td></tr>
+                <tr><td colspan="3" style="text-align:center"><i>Remember, mind wandering is when you are thinking about something <u>unrelated</u> to the task.</i></td></tr>
+                <tr class="slider-row"><td style="text-align:right; font-size:14px; width:25%"><b>Not At All Mind Wandering</b></td><td style="text-align:center; width:50%"><input type="range" min="1" max="100" value="50" class="slider" id="mwRange"></td><td style="text-align:left; font-size:14px; width:25%"><b>Fully Mind Wandering</b></td></tr>
+            </table>
+            <br>
+        </div>
+        
+        <div id='captcha-ctn'>
+            <p>To confirm that you're a human being completing this study, please type the following numbers and letters exactly as you see them: </p>
+            <img id='captcha-img' src='captcha.png' alt='captcha'/>
+            <br>
+            <input type='text' name='captcha' id='captcha' required/>
+            <br>
+            <br>
+        </div>
+
+        <button id='no-consent-btn' class='consent-btn'>I do not agree to participate</button>
+        <button id='yes-consent-btn' class='consent-btn'><b>I agree to participate</b></button>
+
+        <button id='inst-back-btn'>Back</button>
+        <button id='inst-next-btn'>Next</button>
+        <button id='start-btn'>Begin Task</button>
+        <button id='save-resp-btn'>Save responses</button>
+        <button id='save-mot-resp-btn'>Save response</button>
+        <button id='save-range-resp-btn'>Save Response</button>
+        <button id='save-captcha-resp-btn'>Save response</button>
+        <button id='back-test-btn'>Back</button>
+        <button id='test-sound-btn'>Test Sound</button>
+        <button id='next-test-btn'>Continue</button>
+
+        <div id='do-not-refresh'>
+            <br><p><b><i>Please be advised: Refreshing your browser will cause the task to reset. Please do not refresh your browser.</i></b></p>
+        </div>
+        
+        <script src='utility.js'></script>
+        <script src='variables.js'></script>
+        <script src='task.js'></script>
+        
+    </body>
+    
+</html>
