@@ -15,9 +15,9 @@ It has been edited from its original form to remove study-specific details.
   <li>Ask participant motivation level a number of times, presented during predetermined trials</li>
   <li>Present one captcha meant to filter out the use of bots</li>
   <li>Obtain participant demographic information</li>
-  <li>Save individual participant data as .txt files and add participant ids to a running participant list</li>
+  <li>Save mrt and demographic data as .txt files and add participant ids to a running participant list</li>
   <li>Return assigned verification code and present debriefing information</li>
-  <li>Provide a feedback form and save these responses separately to ensure anonymity if desired</li>
+  <li>Provide a feedback form and save these responses</li>
 </ul>
 
 <ul>The MRT itself was programmed as follows: 
