@@ -1,5 +1,7 @@
 # mrt-2019
-This is a metronome response task program created in summer 2019. It has been edited from its original form to remove study-specific details.
+This is a metronome response task program created in summer 2019. 
+
+It has been edited from its original form to remove study-specific details.
 
 <ul>This program was created using HTML, CSS, Javascript, and PHP to meet the following specifications: 
   <li>-Exclude / redirect participants using mobile phones</li>
