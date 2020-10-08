@@ -9,7 +9,7 @@ This is a metronome response task program created in summer 2019. It has been ed
   <li>-Present detailed task instructions and show probe question examples</li>
   <li>-Run participants through a number of practice MRT trials and give feedback</li>
   <li>-Run participants through a number of test MRT trials</li>
-  <li>-Ask participant mind wandering level a number of times, randomly presented and evenly distributed among the trials</li>
+  <li>-Ask participant mind wandering level a number of times, randomly and evenly distributed among the trials</li>
   <li>-Ask participant motivation level a number of times, presented during predetermined trials</li>
   <li>-Present one captcha meant to filter out the use of bots</li>
   <li>-Obtain participant demographic information</li>
